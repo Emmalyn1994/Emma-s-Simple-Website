@@ -1,21 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Final project showcasing a professional, responsive website built with HTML, CSS, and AI tools.">
-  <title>My Final Project</title>
-  <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
-  <!-- Google Fonts Example -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Professional portfolio website showcasing web development projects, responsive design, and modern frontend skills."
+  />
+
+  <title>John Doe | Web Developer Portfolio</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: #0f172a;
+      padding: 15px 8%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo h1 {
+      color: #fff;
+      font-size: 1.8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero Section */
+    #hero {
+      height: 100vh;
+      background: linear-gradient(
+          rgba(15, 23, 42, 0.8),
+          rgba(15, 23, 42, 0.8)
+        ),
+        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085")
+          center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #38bdf8;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0284c7;
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 8%;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #0f172a;
+    }
+
+    /* About */
+    #about p {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.05rem;
+      color: #555;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      margin-bottom: 15px;
+      color: #0f172a;
+    }
+
+    .project-card p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: #0284c7;
+      font-weight: 600;
+    }
+
+    /* Contact */
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #38bdf8;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background: #0284c7;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 2.2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Header / Navigation -->
+
+  <!-- Header -->
   <header>
     <nav>
       <div class="logo">
-        <h1>MyPortfolio</h1>
+        <h1>John Doe</h1>
       </div>
+
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -24,66 +265,109 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section id="hero">
     <div class="hero-content">
-      <h2>Welcome to My Final Project</h2>
-      <p>This website showcases my skills in HTML, CSS, and AI tools. Explore my projects and learn more about my work!</p>
-      <a href="#projects" class="btn">See My Work</a>
+      <h2>Hi, I'm John Doe</h2>
+
+      <p>
+        A passionate Frontend Web Developer specializing in responsive
+        websites, modern UI design, and user-friendly digital experiences
+        using HTML, CSS, JavaScript, and AI-powered tools.
+      </p>
+
+      <a href="#projects" class="btn">View My Projects</a>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>I'm a web developer with experience in building responsive and accessible websites. I use modern tools and best practices to deliver professional results.</p>
+
+    <p>
+      I am a dedicated web developer focused on creating clean, responsive,
+      and accessible websites. I enjoy transforming ideas into interactive
+      digital experiences using modern web technologies and creative design.
+      My goal is to build websites that are both visually appealing and
+      functional across all devices.
+    </p>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects -->
   <section id="projects">
-    <h2>Projects</h2>
+    <h2>Featured Projects</h2>
+
     <div class="project-grid">
+
       <div class="project-card">
-        <h3>Project 1</h3>
-        <p>Brief description of your first project.</p>
+        <h3>E-Commerce Website</h3>
+
+        <p>
+          A responsive online shopping website with product listings,
+          shopping cart functionality, and modern UI design.
+        </p>
+
         <a href="#" target="_blank">View Project</a>
       </div>
+
       <div class="project-card">
-        <h3>Project 2</h3>
-        <p>Brief description of your second project.</p>
+        <h3>Portfolio Website</h3>
+
+        <p>
+          A professional personal portfolio showcasing skills, projects,
+          resume, and contact information.
+        </p>
+
         <a href="#" target="_blank">View Project</a>
       </div>
+
       <div class="project-card">
-        <h3>Project 3</h3>
-        <p>Brief description of your third project.</p>
+        <h3>Restaurant Landing Page</h3>
+
+        <p>
+          A modern restaurant website featuring menu sections, online booking,
+          and responsive mobile-first design.
+        </p>
+
         <a href="#" target="_blank">View Project</a>
       </div>
+
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact Me</h2>
+
     <form action="#" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required />
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        placeholder="Write your message here..."
+        required
+      ></textarea>
 
       <button type="submit">Send Message</button>
+
     </form>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 MyPortfolio. All rights reserved.</p>
+    <p>&copy; 2026 John Doe. All Rights Reserved.</p>
+
     <p>
-      <a href="https://github.com/YourUsername" target="_blank">GitHub</a> | 
-      <a href="https://www.linkedin.com/in/YourProfile" target="_blank">LinkedIn</a>
+      <a href="https://github.com/johndoe" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
     </p>
   </footer>
 
